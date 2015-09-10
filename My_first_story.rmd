@@ -9,6 +9,7 @@ When you click the **Knit HTML** button a web page will be generated that includ
 summary(cars)
 ```
 Here is an additional line.
+Test it.
 
 You can also embed plots, for example:
 
