@@ -3,7 +3,7 @@ README
 
 Brief description of edting this file.
 
-I built a new file of R Markdown in File window. Then saved it in my homework folder. 
+I built a new file of R Markdown in File window. Then saved it in my homework folder. In this file, I kept previous sample chunks, and I added one more chunck trying to make a histgram figure here. 
 
 When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of ny embedded R code chunks within the document. You can embed e chunk like this:
 
