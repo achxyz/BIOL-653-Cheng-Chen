@@ -9,24 +9,10 @@ In addition, in this file, three R markdown formats show here:
 
 First, you can make the content in **bold**;
 
-Secondly, you can change the ##font of the content;
+Secondly, you can change the ## fontsize of the content;
 
 Finally, you can always insert a [link](http://jdunic.github.io/Intro-To-Practical-Computing-R/) here.
 
-When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of ny embedded R code chunks within the document. You can embed e chunk like this:
+> I don't know what does quote mean.
 
-```{r}
-summary(cars)
-```
-
-You can also embed plots, for example:
-
-```{r fig.width=7, fig.height=6}
-plot(cars)
-```
-
-The embedded thing could be code again, like this:
-```{r}
-histgram(data01)
-```
 
