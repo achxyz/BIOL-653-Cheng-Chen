@@ -9,7 +9,7 @@ In addition, in this file, three R markdown formats show here:
 
 First, you can make the content in **bold**;
 
-Secondly, why the ## fontsize of the content does not work(TOT);
+Secondly, why the # fontsize of the content does not work(TOT);
 
 Finally, you can always insert a [link](http://jdunic.github.io/Intro-To-Practical-Computing-R/) here.
 
