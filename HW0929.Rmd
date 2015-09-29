@@ -6,6 +6,7 @@ library(ggplot2)
 library(dplyr)
 
 # 1.
+{r echo = FLASE}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
 geom_point()
 
