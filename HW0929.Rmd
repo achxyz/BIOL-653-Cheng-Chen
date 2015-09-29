@@ -1,6 +1,63 @@
 Homework Sep.29
 ========================================================
+# Part 1 - Make these plots!
+library(gapminder)
+library(ggplot2)
+library(dplyr)
 
+# 1.
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
+geom_point()
+
+# 2.
+ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp, colour = continent)) + 
+geom_point()
+
+# 3.
+ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) + 
+geom_point(aes(colour=continent)) +  geom_smooth(method='lm') 
+
+# 4.
+ggplot(data = gapminder, aes(x = lifeExp, fill = continent)) + 
+  geom_density(alpha = .5) + facet_wrap(~ year)
+
+## 5. 
+min <- gapminder %>%
+  group_by(year, continent) %>%
+  summarise(which.min(lifeExp))
+
+max <- gapminder %>%
+  group_by(year, continent) %>%
+  summarise(which.max(lifeExp))
+
+ggplot(data = gapminder, aes(x = continent, y = lifeExp, colour = continent)) + 
+  geom_crossbar(ymin = min , ymax = max ) + 
+                  geom_errorbar() + facet_wrap(~ year)
+
+# Part 2 Make these plots and then some!
+# 6.
+ggplot(gapminder, aes(x = lifeExp, fill = continent)) + 
+  geom_density(alpha=.5)
+
+# 7.
+Asia <- gapminder %>%
+  filter(continent %in% 'Asia') 
+mean_lifeExp <- mean(Asia$lifeExp)
+
+ggplot(Asia, aes(x = lifeExp, fill = continent)) + geom_density(alpha = .8) + 
+  geom_vline(xintercept = mean_lifeExp) + ggtitle('Life expanctency in Asia')
+  
+# 8.
+# a.
+lifeExp_Cont <- group_by(gapminder,continent) %>%
+  summarise(mean_lifeExp= mean(lifeExp))
+
+
+## b.
+ggplot(gapminder, aes(x = lifeExp, fill = continent)) + 
+  geom_density() + geom_vline(xintercept = lifeExp_Cont[,2]) + facet_wrap(~continent) 
+
+# Part 3 Trouble shooting
 library(ggplot2)
 
 setwd("/Users/cc/Desktop/R00/homework")
