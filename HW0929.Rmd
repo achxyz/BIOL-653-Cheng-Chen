@@ -21,18 +21,9 @@ geom_point(aes(colour=continent)) +  geom_smooth(method='lm')
 ggplot(data = gapminder, aes(x = lifeExp, fill = continent)) + 
   geom_density(alpha = .5) + facet_wrap(~ year)
 
-## 5. 
-min <- gapminder %>%
-  group_by(year, continent) %>%
-  summarise(which.min(lifeExp))
-
-max <- gapminder %>%
-  group_by(year, continent) %>%
-  summarise(which.max(lifeExp))
-
+# 5. 
 ggplot(data = gapminder, aes(x = continent, y = lifeExp, colour = continent)) + 
-  geom_crossbar(ymin = min , ymax = max ) + 
-                  geom_errorbar() + facet_wrap(~ year)
+  geom_boxplot() + facet_wrap(~ year) + scale_x_discrete(breaks=c("Africa", "Americas", "Asia", "Europe", "Oceania"),labels=c("Af", "Am", "As", "Eu", "Oc"))
 
 # Part 2 Make these plots and then some!
 # 6.
@@ -53,9 +44,9 @@ lifeExp_Cont <- group_by(gapminder,continent) %>%
   summarise(mean_lifeExp= mean(lifeExp))
 
 
-## b.
+# b.
 ggplot(gapminder, aes(x = lifeExp, fill = continent)) + 
-  geom_density() + geom_vline(xintercept = lifeExp_Cont[,2]) + facet_wrap(~continent) 
+  geom_density() + facet_wrap(~continent) + geom_vline(data = lifeExp_Cont,aes(xintercept = c(48.87,64.59,60.06, 71.90, 74.33)))
 
 # Part 3 Trouble shooting
 library(ggplot2)
