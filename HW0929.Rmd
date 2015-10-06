@@ -48,6 +48,13 @@ lifeExp_Cont <- group_by(gapminder,continent) %>%
 ggplot(gapminder, aes(x = lifeExp, fill = continent)) + 
   geom_density() + facet_wrap(~continent) + geom_vline(data = lifeExp_Cont,aes(xintercept = c(48.87,64.59,60.06, 71.90, 74.33)))
 
+# bbb on class
+  ggplot(gapminder, aes(x = lifeExp, fill = continent)) +
+    geom_density (alpha = 0.5) + 
+    geom_vline(data = lifeExp_Cont, aes(xintercept = mean_lifeExp)) +
+    facet_wrap(~continent)
+    
+
 # Part 3 Trouble shooting
 library(ggplot2)
 
